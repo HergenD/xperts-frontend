@@ -1,28 +1,43 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar
+        app
+        dense
+        flat
+    >
+
+      <v-tabs>
+        <v-tab>Analyze</v-tab>
+        <v-tab>About</v-tab>
+        <v-tab>Contact</v-tab>
+      </v-tabs>
+      <v-spacer></v-spacer>
+      <v-btn icon class="mr-4">
+        <v-icon>mdi-github</v-icon>
+      </v-btn>
+      <DarkToggle/>
+    </v-app-bar>
+
+    <v-main>
+      <Analyze/>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Analyze from '@/views/Analyze';
+import DarkToggle from "@/components/DarkToggle";
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {
+    DarkToggle,
+    Analyze,
+  },
+
+  data: () => ({
+    //
+  }),
+};
+</script>
