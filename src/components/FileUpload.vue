@@ -10,7 +10,7 @@
     </v-row>
     <v-row>
       <v-col>
-        <v-btn @click="analyze()" :disabled="!this.image || analyzing">Analyze</v-btn>
+        <v-btn @click="analyze()" :disabled="!this.image || analyzing">🦷 Analyze 🦷</v-btn>
       </v-col>
     </v-row>
     <v-row>
