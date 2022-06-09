@@ -27,8 +27,11 @@
           ></v-file-input>
         </v-row>
         <v-row>
-          <v-col>
+          <v-col v-if="!resultImage">
             <v-btn x-large @click="analyze()" :disabled="!this.image || analyzing">🦷 Analyze 🦷</v-btn>
+          </v-col>
+          <v-col v-if="resultImage">
+            <v-btn x-large @click="downloadResult()">Download Result</v-btn>
           </v-col>
         </v-row>
         <v-row>
@@ -70,10 +73,11 @@
                       align="center"
                       justify="center"
                   >
-                    <v-progress-circular
-                        indeterminate
-                        color="grey lighten-5"
-                    ></v-progress-circular>
+                    <v-progress-linear style="opacity:15%"
+                                       color="green accent-4"
+                                       indeterminate
+                                       height="1000"
+                    ></v-progress-linear>
                   </v-row>
                 </template>
               </v-img>
@@ -109,6 +113,14 @@ export default {
     }
   },
   methods: {
+    downloadResult() {
+      const link = document.createElement("a");
+      link.download = 'result.jpg';
+      link.href = this.resultImage;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    },
     start() {
       this.$confetti.start();
     },
@@ -131,9 +143,18 @@ export default {
 
       return `<span class='red p-2'>${amount}</span>`;
     },
-    updateText(count) {
+    async updateText(count) {
       if (this.analyzing) {
+        let template = `: ${count === 0 ? 'no' : count} ${count === 1 ? 'cavity' : 'cavities'} found`
+
+
+        for (let i = 0; i < template.length; i++) {
+          this.cavityText += template[i]
+          await this.sleep(50)
+        }
+
         this.cavityText = `: ${this.color(count)} ${count === 1 ? 'cavity' : 'cavities'} found`
+
       } else {
         this.cavityText = ''
       }
@@ -197,9 +218,6 @@ export default {
     }
   },
   watch: {
-    cavities(count) {
-      this.updateText(count)
-    },
     image(imageFile) {
       if (imageFile) {
         let reader = new FileReader
