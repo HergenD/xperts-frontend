@@ -1,74 +1,99 @@
 <template>
+
   <div>
-    <v-row>
-      <v-file-input
-          v-model="image"
-          label="Upload X-ray image"
-          counter
-          show-size
-      ></v-file-input>
-    </v-row>
-    <v-row>
-      <v-col>
-        <v-btn @click="analyze()" :disabled="!this.image || analyzing">🦷 Analyze 🦷</v-btn>
+    <v-row class="text-center">
+      <v-col cols="12">
+
+      </v-col>
+
+      <v-col class="mb-4">
+        <h1 class="display-2 font-weight-bold mb-3">
+          👩‍⚕️<span v-html="cavityText"
+                     style="font-family: 'Press Start 2P', cursive !important;font-size:24px">{{ cavityText }}</span>
+        </h1>
+        <h2 style="font-size:38px;font-weight:600;font-family: 'Press Start 2P', cursive !important;">X-perts Dental
+          AI</h2>
       </v-col>
     </v-row>
-    <v-row>
+    <v-row class="text-center">
       <v-col>
-        <v-card
-            v-if="previewImage"
-            class="mt-8"
-        >
-          <h4 class="pt-4">Preview</h4>
-          <v-img
-              style="margin-left:5%"
-              class="my-4"
-              max-width="90%"
-              contain
-              :src="previewImage"
-          ></v-img>
-          <v-spacer>&nbsp;</v-spacer>
-        </v-card>
-      </v-col>
-      <v-spacer></v-spacer>
-      <v-col>
-        <v-card
-            v-if="analyzing"
-            class="mt-8"
-        >
-          <h4 class="pt-4">Result</h4>
-          <v-img
-              id="result-img"
-              style="margin-left:5%"
-              class="my-4"
-              max-width="90%"
-              contain
-              :src="resultImage"
-              :lazy-src="previewImage"
-          >
-            <template v-slot:placeholder>
-              <v-row
-                  class="fill-height ma-0"
-                  align="center"
-                  justify="center"
+
+        <v-row>
+          <v-file-input
+              v-model="image"
+              label="Upload X-ray image"
+              counter
+              show-size
+          ></v-file-input>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-btn x-large @click="analyze()" :disabled="!this.image || analyzing">🦷 Analyze 🦷</v-btn>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-card
+                v-if="previewImage"
+                class="mt-8"
+            >
+              <h4 class="pt-4">Preview</h4>
+              <v-img
+                  style="margin-left:5%"
+                  class="my-4"
+                  max-width="90%"
+                  contain
+                  :src="previewImage"
+              ></v-img>
+              <v-spacer>&nbsp;</v-spacer>
+            </v-card>
+          </v-col>
+          <v-spacer></v-spacer>
+          <v-col>
+            <v-card
+                v-if="analyzing"
+                class="mt-8"
+            >
+              <h4 class="pt-4">Result</h4>
+              <v-img
+                  id="result-img"
+                  style="margin-left:5%"
+                  class="my-4"
+                  max-width="90%"
+                  contain
+                  :src="resultImage"
+                  :lazy-src="previewImage"
               >
-                <v-progress-circular
-                    indeterminate
-                    color="grey lighten-5"
-                ></v-progress-circular>
-              </v-row>
-            </template>
-          </v-img>
-          <v-spacer>&nbsp;</v-spacer>
-        </v-card>
+                <template v-slot:placeholder>
+                  <v-row
+                      class="fill-height ma-0"
+                      align="center"
+                      justify="center"
+                  >
+                    <v-progress-circular
+                        indeterminate
+                        color="grey lighten-5"
+                    ></v-progress-circular>
+                  </v-row>
+                </template>
+              </v-img>
+              <v-spacer>&nbsp;</v-spacer>
+            </v-card>
+          </v-col>
+        </v-row>
+
       </v-col>
+
     </v-row>
   </div>
-
 </template>
 
 <script>
 import axios from 'axios'
+import Vue from 'vue'
+import VueConfetti from 'vue-confetti'
+
+Vue.use(VueConfetti)
 
 export default {
   name: "FileUpload",
@@ -79,9 +104,40 @@ export default {
       resultImage: null,
       result: 'no result',
       analyzing: false,
+      cavityText: '',
+      cavities: 0,
     }
   },
   methods: {
+    start() {
+      this.$confetti.start();
+    },
+
+    stop() {
+      this.$confetti.stop();
+    },
+    sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    },
+    async confetti() {
+      this.start()
+      await this.sleep(3000)
+      this.stop()
+    },
+    color(amount) {
+      if (amount === 0) {
+        return `<span class='green p-2'>no</span>`;
+      }
+
+      return `<span class='red p-2'>${amount}</span>`;
+    },
+    updateText(count) {
+      if (this.analyzing) {
+        this.cavityText = `: ${this.color(count)} ${count === 1 ? 'cavity' : 'cavities'} found`
+      } else {
+        this.cavityText = ''
+      }
+    },
     analyze() {
       this.analyzing = true
       let fd = new FormData()
@@ -106,6 +162,8 @@ export default {
               canvas.height = img.height;
               ctx.drawImage(img, 0, 0);
 
+              let cavityCount = 0;
+
               // Loop through cavity detections
               cavities.forEach(cavity => {
                 let x = parseInt(cavity[0])
@@ -120,16 +178,28 @@ export default {
                   ctx.lineWidth = 3;
                   ctx.strokeStyle = '#de1f1f';
                   ctx.stroke();
+                  cavityCount++;
                 }
               });
 
+
               this.resultImage = canvas.toDataURL('image/jpeg')
+
+              if (cavityCount === 0) {
+                this.confetti()
+              }
+
+              this.cavities = cavityCount
+              this.updateText(cavityCount)
             }
             reader.readAsDataURL(this.image);
           })
     }
   },
   watch: {
+    cavities(count) {
+      this.updateText(count)
+    },
     image(imageFile) {
       if (imageFile) {
         let reader = new FileReader
@@ -137,6 +207,8 @@ export default {
           this.previewImage = e.target.result
           this.analyzing = false
           this.resultImage = null
+          this.cavities = 0
+          this.updateText(0)
         }
         reader.readAsDataURL(imageFile)
       }

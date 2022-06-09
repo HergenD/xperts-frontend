@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="">
     <v-row>
       <v-col>
         <v-card
@@ -26,7 +26,11 @@
               Data Hacker
             </div>
 
-            <div>My name is Mohammad an I am a Data Analyst with high ability in working with data by using SQL, Python, ML, etc. Not only I am a professional in the data analysis field, but also I have valuable experience in sales and business development. A combination of my experiences and abilities let me think more realistic and tackle problems efficiently and effectively!</div>
+            <div>My name is Mohammad an I am a Data Analyst with high ability in working with data by using SQL, Python,
+              ML, etc. Not only I am a professional in the data analysis field, but also I have valuable experience in
+              sales and business development. A combination of my experiences and abilities let me think more realistic
+              and tackle problems efficiently and effectively!
+            </div>
           </v-card-text>
 
           <v-divider class="mx-4"></v-divider>
@@ -39,11 +43,11 @@
                 class="mx-0"
             >
               <v-btn icon class="mr-2"
-                        @click="link('https://github.com/hbaloochi')">
+                     @click="link('https://github.com/hbaloochi')">
                 <v-icon>mdi-github</v-icon>
               </v-btn>
               <v-btn icon class="mr-2"
-                        @click="link('https://www.linkedin.com/in/baluchi/')">
+                     @click="link('https://www.linkedin.com/in/baluchi/')">
                 <v-icon>mdi-linkedin</v-icon>
               </v-btn>
               <v-btn icon class="mr-2">
@@ -93,8 +97,13 @@
               Data Wizard 🧙‍♀️
             </div>
 
-            <div>My name is Seung Ah, and I moved to the Netherlands from South Korea in January of 2020. In Korea, I worked as a nurse, but after moving here I have decided to pursue a different career path. Because of this, I'm currently a Data Science student at Le Wagon Amsterdam, and will soon be completing the course.
-I'm someone who enjoys learning new things, and most of all solving complex problems. If I pick something up, I'm always eager and determined to make sure I solve the problem in a precise way. This is something that was required in my previous career, and a skill that I feel carries over perfectly to Data Science.</div>
+            <div>My name is Seung Ah, and I moved to the Netherlands from South Korea in January of 2020. In Korea, I
+              worked as a nurse, but after moving here I have decided to pursue a different career path. Because of
+              this, I'm currently a Data Science student at Le Wagon Amsterdam, and will soon be completing the course.
+              I'm someone who enjoys learning new things, and most of all solving complex problems. If I pick something
+              up, I'm always eager and determined to make sure I solve the problem in a precise way. This is something
+              that was required in my previous career, and a skill that I feel carries over perfectly to Data Science.
+            </div>
           </v-card-text>
 
           <v-divider class="mx-4"></v-divider>
@@ -107,11 +116,11 @@ I'm someone who enjoys learning new things, and most of all solving complex prob
                 class="mx-0"
             >
               <v-btn icon class="mr-2"
-                          @click="link('https://github.com/seungahpyun')">
+                     @click="link('https://github.com/seungahpyun')">
                 <v-icon>mdi-github</v-icon>
               </v-btn>
               <v-btn icon class="mr-2"
-                          @click="link('https://www.linkedin.com/in/seungah-pyun')">
+                     @click="link('https://www.linkedin.com/in/seungah-pyun')">
                 <v-icon>mdi-linkedin</v-icon>
               </v-btn>
               <v-btn icon class="mr-2">
@@ -160,7 +169,14 @@ I'm someone who enjoys learning new things, and most of all solving complex prob
               Data Hustler
             </div>
 
-            <div>My name is Lisa and come from Germany. I just finished high-school last year and took a GAP year, which was definitely one of the best decisions I have ever made. I wanted to conclude my year with a data science bootcamp at Le Wagon in Amsterdam, because I wanted to completely step outside of my comfortzone learning new skills in a different country. If you would have asked me three years ago to do this, I would have denied, but after doing this bootcamp I really came to really enjoy coding! I will definitely continue with this and hope to work in the tech field in the future after completing my studies. I enjoy being able to solve problems and work as a team to do so. </div>
+            <div>My name is Lisa and come from Germany. I just finished high-school last year and took a GAP year, which
+              was definitely one of the best decisions I have ever made. I wanted to conclude my year with a data
+              science bootcamp at Le Wagon in Amsterdam, because I wanted to completely step outside of my comfortzone
+              learning new skills in a different country. If you would have asked me three years ago to do this, I would
+              have denied, but after doing this bootcamp I really came to really enjoy coding! I will definitely
+              continue with this and hope to work in the tech field in the future after completing my studies. I enjoy
+              being able to solve problems and work as a team to do so.
+            </div>
           </v-card-text>
 
           <v-divider class="mx-4"></v-divider>
@@ -173,11 +189,11 @@ I'm someone who enjoys learning new things, and most of all solving complex prob
                 class="mx-0"
             >
               <v-btn icon class="mr-2"
-                          @click="link('https://github.com/LiMaNa04')">
+                     @click="link('https://github.com/LiMaNa04')">
                 <v-icon>mdi-github</v-icon>
               </v-btn>
               <v-btn icon class="mr-2"
-                          @click="link('https://www.linkedin.com/in/lisa-marie-nagel-3009')">
+                     @click="link('https://www.linkedin.com/in/lisa-marie-nagel-3009')">
                 <v-icon>mdi-linkedin</v-icon>
               </v-btn>
               <v-btn icon class="mr-2">
