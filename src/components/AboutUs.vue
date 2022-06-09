@@ -11,7 +11,7 @@
               src="@/assets/mohammad.jpg"
           ></v-img>
 
-          <v-card-title>Mohammad Hossein Baloochi </v-card-title>
+          <v-card-title>Mohammad Hossein Baluchi</v-card-title>
 
           <v-card-text>
             <v-row
