@@ -151,12 +151,13 @@ I'm someone who enjoys learning new things, and most of all solving complex prob
                 align="center"
                 class="mx-0"
             >
-              <v-icon>mdi-language-python</v-icon>
-              <v-icon>mdi-panda</v-icon>
-              <v-icon>mdi-brain</v-icon>
+              <v-icon>mdi-robot-happy-outline</v-icon>
+              <v-icon>mdi-earth-arrow-right</v-icon>
+              <v-icon>mdi-crowd</v-icon>
+              <v-icon>mdi-keyboard-variant</v-icon>
             </v-row>
             <div class="my-4 text-subtitle-1">
-              Data Scientist
+              Data Hustler
             </div>
 
             <div>My name is Lisa and come from Germany. I just finished high-school last year and took a GAP year, which was definitely one of the best decisions I have every made. I wanted to conclude my year with a coding bootcamp, because I wanted to completely step outside of my comfortzone. If you would have asked me three years ago to do this, I would have denied, but after doing this bootcamp I really came to really enjoy coding! I will definitely continue with this and hope to work in a tech field in the future after completing my studies.</div>
