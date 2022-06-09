@@ -18,9 +18,9 @@
                 align="center"
                 class="mx-0"
             >
-              <v-icon>mdi-language-python</v-icon>
-              <v-icon>mdi-panda</v-icon>
-              <v-icon>mdi-brain</v-icon>
+              <v-icon>mdi-key-wireless</v-icon>
+              <v-icon>mdi-laptop-account</v-icon>
+              <v-icon>mdi-rodent</v-icon>
             </v-row>
             <div class="my-4 text-subtitle-1">
               Data Hacker
