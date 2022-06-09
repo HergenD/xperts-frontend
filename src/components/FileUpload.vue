@@ -87,7 +87,7 @@ export default {
       let fd = new FormData()
       fd.append('file', this.image)
 
-      axios.post('http://localhost:8000/image', fd)
+      axios.post('https://xperts-yjhmvqcmwa-ez.a.run.app/image', fd)
           .then(resp => {
             console.log(resp.data)
 
