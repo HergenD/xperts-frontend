@@ -87,7 +87,7 @@
             >
               <v-icon>mdi-language-python</v-icon>
               <v-icon>mdi-panda</v-icon>
-              <v-icon>mdi-brain</v-icon>
+              <v-icon>mdi-google-cloud</v-icon>
             </v-row>
             <div class="my-4 text-subtitle-1">
               Data Wizard 🧙‍♀️
@@ -160,7 +160,7 @@ I'm someone who enjoys learning new things, and most of all solving complex prob
               Data Hustler
             </div>
 
-            <div>My name is Lisa and come from Germany. I just finished high-school last year and took a GAP year, which was definitely one of the best decisions I have every made. I wanted to conclude my year with a coding bootcamp, because I wanted to completely step outside of my comfortzone. If you would have asked me three years ago to do this, I would have denied, but after doing this bootcamp I really came to really enjoy coding! I will definitely continue with this and hope to work in a tech field in the future after completing my studies.</div>
+            <div>My name is Lisa and come from Germany. I just finished high-school last year and took a GAP year, which was definitely one of the best decisions I have ever made. I wanted to conclude my year with a data science bootcamp at Le Wagon in Amsterdam, because I wanted to completely step outside of my comfortzone learning new skills in a different country. If you would have asked me three years ago to do this, I would have denied, but after doing this bootcamp I really came to really enjoy coding! I will definitely continue with this and hope to work in the tech field in the future after completing my studies. I enjoy being able to solve problems and work as a team to do so. </div>
           </v-card-text>
 
           <v-divider class="mx-4"></v-divider>
