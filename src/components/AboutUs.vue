@@ -85,8 +85,8 @@
                 align="center"
                 class="mx-0"
             >
+              <v-icon>mdi-google-downasaur</v-icon>
               <v-icon>mdi-language-python</v-icon>
-              <v-icon>mdi-panda</v-icon>
               <v-icon>mdi-google-cloud</v-icon>
             </v-row>
             <div class="my-4 text-subtitle-1">
