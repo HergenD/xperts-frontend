@@ -43,7 +43,7 @@
                 <v-icon>mdi-github</v-icon>
               </v-btn>
               <v-btn icon class="mr-2"
-                        @click="link('')">
+                        @click="link('https://www.linkedin.com/in/baluchi/')">
                 <v-icon>mdi-linkedin</v-icon>
               </v-btn>
               <v-btn icon class="mr-2">
